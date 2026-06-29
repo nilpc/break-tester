@@ -1,0 +1,18 @@
+{
+  "concurrency": 100,
+  "duration": "10s", 
+  "targets": [
+    {
+      "url": "http://target-app:5000/users",
+      "method": "GET",
+      "weight": 70,
+      "cache_bypass": true
+    },
+    {
+      "url": "http://target-app:5000/checkout",
+      "method": "POST",
+      "weight": 30,
+      "cache_bypass": false
+    }
+  ]
+}
