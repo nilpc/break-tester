@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 2s # Ask for new scores every 2 seconds
+
+scrape_configs:
+  - job_name: 'break-tester'
+    static_configs:
+      # This tells Prometheus to look at our Go app on port 8080
+      - targets: ['break-tester:8080']

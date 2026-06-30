@@ -1,6 +1,6 @@
 {
   "concurrency": 100,
-  "duration": "10s", 
+  "duration": "60s", 
   "targets": [
     {
       "url": "http://target-app:5000/users",

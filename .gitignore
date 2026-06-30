@@ -8,7 +8,7 @@ break-tester.exe
 
 Python Environment & Caches
 
-pycache/
+__pycache__/
 *.py[cod]
 *$py.class
 .venv/
@@ -19,3 +19,18 @@ OS Hidden Files
 
 .DS_Store
 Thumbs.db
+
+IDE
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+Logs
+
+*.log
+
+Environment
+
+.env

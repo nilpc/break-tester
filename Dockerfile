@@ -2,10 +2,12 @@ FROM golang:alpine AS builder
 
 WORKDIR /app
 
-COPY go.mod ./
+COPY go.mod go.sum ./
+
+RUN go mod download
+
 COPY main.go ./
 
-RUN go build -o break-tester main.go
 RUN CGO_ENABLED=0 go build -o break-tester main.go
 
 FROM alpine:latest
