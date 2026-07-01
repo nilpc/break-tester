@@ -34,6 +34,32 @@ Think of it like running a secret shopper operation at scale, with a live TV cre
 
 ---
 
+## Project Structure
+
+```
+break-tester/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              # CI/CD — build & push to Docker Hub
+├── grafana/
+│   └── provisioning/
+│       ├── datasources/
+│       │   └── datasource.yml      # Auto-connects to Prometheus
+│       └── dashboards/
+│           ├── dashboard.yml        # Dashboard provider config
+│           └── break-tester-dashboard.json   # 14-panel live dashboard
+├── main.go                          # Entry point, orchestration, Prometheus metrics
+├── config.json                      # Default test configuration
+├── app.py                           # Local Flask target server
+├── prometheus.yml                   # Scrape config (every 2 seconds)
+├── Dockerfile                       # Multi-stage production build
+├── docker-compose.yml               # Full stack orchestration
+├── go.mod / go.sum                  # Go module dependencies
+└── README.md
+```
+
+---
+
 ## Quick Start
 
 You'll need **Go**, **Docker**, and **Docker Compose** installed before you begin.
@@ -274,32 +300,6 @@ docker pull nilpc1999/break-tester:latest
 - **Python / Flask** — included dummy target server for local testing
 - **Docker & Docker Compose** — full-stack orchestration
 - **GitHub Actions** — CI/CD to Docker Hub
-
----
-
-## Project Structure
-
-```
-break-tester/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml              # CI/CD — build & push to Docker Hub
-├── grafana/
-│   └── provisioning/
-│       ├── datasources/
-│       │   └── datasource.yml      # Auto-connects to Prometheus
-│       └── dashboards/
-│           ├── dashboard.yml        # Dashboard provider config
-│           └── break-tester-dashboard.json   # 14-panel live dashboard
-├── main.go                          # Entry point, orchestration, Prometheus metrics
-├── config.json                      # Default test configuration
-├── app.py                           # Local Flask target server
-├── prometheus.yml                   # Scrape config (every 2 seconds)
-├── Dockerfile                       # Multi-stage production build
-├── docker-compose.yml               # Full stack orchestration
-├── go.mod / go.sum                  # Go module dependencies
-└── README.md
-```
 
 ---
 
